@@ -1,0 +1,53 @@
+version: '3.7'
+
+services:
+
+    web:
+        container_name: web
+        build:
+            context: ./services/apache-web
+        image:
+            pj1004/ianseo
+        volumes:
+            - web-dir:/opt/ianseo
+        ports:
+            - "80:80"
+        restart:
+            always
+        env_file:
+            - ./services/apache-web/.env
+        networks:
+            ianseo-local:
+                ipv4_address: 172.20.0.21
+        depends_on:
+            - db
+
+    db:
+        container_name: db
+        image:
+            mariadb:10.5-bionic
+        volumes:
+            - db-dir:/var/lib/mysql
+        ports:
+            - "3306:3306"
+        restart:
+            always
+        env_file:
+            - ./.env
+        networks:
+            ianseo-local:
+                ipv4_address: 172.20.0.20
+volumes:
+
+    db-dir:
+        external: false
+
+    web-dir:
+        external: false
+
+networks:
+
+    ianseo-local:
+        ipam:
+            config:
+                - subnet: 172.20.0.0/24
