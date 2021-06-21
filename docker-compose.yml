@@ -4,8 +4,8 @@ services:
 
     web:
         container_name: web
-        build:
-            context: ./services/apache-web
+#        build:
+#            context: ./services/apache-web
         image:
             pj1004/ianseo
         volumes:
@@ -13,7 +13,7 @@ services:
         ports:
             - "80:80"
         restart:
-            always
+            unless-stopped
         env_file:
             - ./services/apache-web/.env
         networks:
@@ -31,7 +31,7 @@ services:
         ports:
             - "3306:3306"
         restart:
-            always
+            unless-stopped
         env_file:
             - ./.env
         networks:
