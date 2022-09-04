@@ -1,4 +1,4 @@
-FROM php:7.2-apache
+FROM php:8.1-apache
 
 # Initial package installs
 ENV DEBIAN_FRONTEND=noninteractive
@@ -40,10 +40,10 @@ RUN a2enmod rewrite
 # Setup IANSEO
 RUN mkdir -p /opt/ianseo
 ## Comment out RUN line if copying file locally
-RUN wget https://www.ianseo.net/Release/Ianseo_20210414.zip && unzip -o Ianseo_20210414.zip -d /opt/ianseo
+RUN wget https://www.ianseo.net/Release/Ianseo_20220701.zip && unzip -o Ianseo_20220701.zip -d /opt/ianseo
 ## Uncomment out COPY & RUN (unzip) line if not pulling direct from IANSEO website
-#COPY ./src/Ianseo_20210414.zip /tmp/Ianseo_20210414.zip
-#RUN unzip -o /tmp/Ianseo_20210414.zip -d /opt/ianseo && rm /tmp/*.zip
+#COPY ./src/Ianseo_20220701.zip /tmp/Ianseo_20220701.zip
+#RUN unzip -o /tmp/Ianseo_20220701.zip -d /opt/ianseo && rm /tmp/*.zip
 
 RUN chown -R www-data:www-data /opt/ianseo
 RUN ln -s /opt/ianseo /var/www/html/ianseo

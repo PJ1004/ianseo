@@ -3,21 +3,21 @@ Docker Build for World Archery IANSEO System
 
 Info:
  - Author - PJ1004
- - Version - 1.0
- - Last Modified - 21-May-2021
+ - Version - 1.1
+ - Last Modified - 4-Sep-2022
 
 
 Context:
  - Database - MariaDB:10.5
- - Apache Webserver - PHP 7.2
- - IANSEO - 20210414
+ - Apache Webserver - PHP 8.1
+ - IANSEO - 20220701
 
 How To:
 Once the repository is cloned, run the following command from inside the ianseo directory:
     docker-compose up
 
 When the containers have started, open your web browser and navigate to:
-    http://127.0.0.1/ianseo
+    http://127.0.0.1/ianseo/Install
 
 
 First Run:

@@ -4,10 +4,10 @@ services:
 
     web:
         container_name: web
-#        build:
-#            context: ./services/apache-web
+        # build:
+        #     context: ./services/apache-web
         image:
-            pj1004/ianseo
+            pj1004/ianseo:php8.1
         volumes:
             - web-dir:/opt/ianseo
         ports:
