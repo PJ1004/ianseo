@@ -9,6 +9,7 @@
         <Directory /var/www/html>
                 Options Indexes FollowSymLinks MultiViews
                 AllowOverride FileInfo
+                DirectoryIndex index.php
                 Order allow,deny
                 allow from all
         </Directory>

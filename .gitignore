@@ -1,4 +1,5 @@
 ## Git will ignore the following files
 
 .DS_Store
+**Thumbs.db
 #**.env
