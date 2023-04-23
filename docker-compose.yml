@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.8'
 
 services:
 
@@ -7,7 +7,7 @@ services:
         # build:
         #     context: ./services/apache-web
         image:
-            pj1004/ianseo:php8.1
+            pj1004/ianseo:php8.2
         volumes:
             - web-dir:/opt/ianseo
         ports:
@@ -18,14 +18,14 @@ services:
             - ./services/apache-web/.env
         networks:
             ianseo-local:
-                ipv4_address: 172.20.0.21
+            #     ipv4_address: 172.20.0.21
         depends_on:
             - db
 
     db:
         container_name: db
         image:
-            mariadb:10.5-bionic
+            mariadb:10.5-focal
         volumes:
             - db-dir:/var/lib/mysql
         ports:
@@ -36,7 +36,8 @@ services:
             - ./.env
         networks:
             ianseo-local:
-                ipv4_address: 172.20.0.20
+                # ipv4_address: 172.20.0.20
+
 volumes:
 
     db-dir:
@@ -48,6 +49,9 @@ volumes:
 networks:
 
     ianseo-local:
-        ipam:
-            config:
-                - subnet: 172.20.0.0/24
+        driver: bridge
+        # name: ianseo-local
+        # external: false
+        # ipam:
+        #     config:
+        #         - subnet: 172.20.0.0/24
