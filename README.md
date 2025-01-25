@@ -5,14 +5,14 @@
 
 ### Info:
  - Author - PJ1004
- - Version - 1.2
- - Last Modified - 23-Apr-2023
+ - Version - 1.3
+ - Last Modified - 26-Jan-2025
 
 
 ### Context:
- - Database - MariaDB:10.5
- - Apache Webserver - PHP 8.2
- - IANSEO - 20230401
+ - Database - MariaDB:11
+ - Apache Webserver - PHP 8.4
+ - IANSEO - 20241208
 
 
 ### How To:
