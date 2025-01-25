@@ -2,6 +2,9 @@
 
 ## Docker Build for World Archery IANSEO System
 
+Note - The COMBINED repository has relocated.
+See:
+ - https://github.com/PJ1004/ianseo-combo
 
 ### Info:
  - Author - PJ1004
