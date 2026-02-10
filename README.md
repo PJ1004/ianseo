@@ -8,14 +8,14 @@ See:
 
 ### Info:
  - Author - PJ1004
- - Version - 1.3
- - Last Modified - 26-Jan-2025
+ - Version - 2.3
+ - Last Modified - 10-Feb-2026
 
 
 ### Context:
- - Database - MariaDB:11
- - Apache Webserver - PHP 8.4
- - IANSEO - 20241208
+ - Database - MariaDB:12
+ - Apache Webserver - PHP 8.5
+ - IANSEO - 20250210
 
 
 ### How To:
