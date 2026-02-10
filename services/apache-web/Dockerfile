@@ -1,4 +1,4 @@
-FROM php:8.4-apache
+FROM docker.io/php:8.5-apache
 
 # Initial package installs
 ENV DEBIAN_FRONTEND=noninteractive
@@ -27,10 +27,12 @@ RUN install-php-extensions mbstring gd curl mysqli xml zip imagick intl
 # Optional PHP INFO to be used for checking settings (Comment out COPY if not needed)
 COPY --chown=www-data:www-data ./src/info.php /var/www/html/info.php
 # Configure PHP settings
-RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
-RUN sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 16M/g' /usr/local/etc/php/php.ini
-RUN sed -i 's/max_execution_time = 30/max_execution_time = 120/g' /usr/local/etc/php/php.ini
-RUN sed -i 's/post_max_size = 8M/post_max_size = 16M/g' /usr/local/etc/php/php.ini
+ENV PHP_CONF=/usr/local/etc/php/php.ini
+RUN cp /usr/local/etc/php/php.ini-production $PHP_CONF
+RUN sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 16M/g' $PHP_CONF
+RUN sed -i 's/max_execution_time = 30/max_execution_time = 120/g' $PHP_CONF
+RUN sed -i 's/post_max_size = 8M/post_max_size = 16M/g' $PHP_CONF
+RUN sed -i 's/;extension=intl/extension=imagick\n;extension=intl/g' $PHP_CONF
 
 # Config for default apache website
 COPY ./src/apache_default /etc/apache2/sites-available/000-default.conf
@@ -41,7 +43,7 @@ RUN a2enmod rewrite
 RUN mkdir -p /opt/ianseo
 
 ## Comment out RUN lines if copying file locally
-ENV IANSEO_RELEASE=Ianseo_20241208
+ENV IANSEO_RELEASE=Ianseo_20250210
 RUN wget https://www.ianseo.net/Release/${IANSEO_RELEASE}.zip && unzip -o ${IANSEO_RELEASE}.zip -d /opt/ianseo
 RUN rm ${IANSEO_RELEASE}.zip
 
