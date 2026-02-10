@@ -7,7 +7,7 @@ services:
         #build:
         #    context: ./services/apache-web
         image:
-            pj1004/ianseo:php8.4
+            pj1004/ianseo:php8.5
         volumes:
             - web-dir:/opt/ianseo
         ports:
@@ -24,7 +24,7 @@ services:
     db:
         container_name: db
         image:
-            mariadb:11-jammy
+            mariadb:12-noble
         volumes:
             - db-dir:/var/lib/mysql
         ports:
