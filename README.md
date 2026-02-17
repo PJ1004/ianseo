@@ -1,6 +1,6 @@
 # pj1004/ianseo - docker-compose build
 
-## Docker Build for World Archery IANSEO System
+## Docker Build for the Ianseo System, as used by World Archery
 
 Note - The COMBINED repository has relocated.
 See:
@@ -29,7 +29,7 @@ When the containers have started, open your web browser and navigate to:
 
 
 ### First Run:
-When connecting to the database on the IANSEO first-run screen, just enter `db` in the write server Host field.  The root password is not required as a blank 'ianseo' database is created at first-time startup along with the 'ianseo' user.
+When connecting to the database on the Ianseo first-run screen, just enter `db` in the write server Host field.  The root password is not required as a blank 'ianseo' database is created at first-time startup along with the 'ianseo' user.
 
 Refer to the .env file if you wish to change the password or database settings before first run.
 If you want to retain your customisations in the .env file for future versions, add ".env" to your ".gitignore" file
